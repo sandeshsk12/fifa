@@ -36,7 +36,7 @@ st.markdown(
 
 def grey_card(header='',title='',text=''):
     return f"""
-    <div class="card text-white bg-secondary mb-" >
+    <div class="card text-white bg-secondary mb-" style="margin:1rem;" >
     <div class="card-header">{header}</div>
     <div class="card-body">
     <h3 class="card-title">{title}</h3>
@@ -47,7 +47,74 @@ def grey_card(header='',title='',text=''):
     """
 
 
+###############
+st.markdown("""
+<div class="card text-white bg-warning mb-3" style="margin:1rem;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h3 class="card-title">Average profit and duration held</h3>
+    <p class="card-text"></p>
+  </div>
+</div>"""
+, unsafe_allow_html=True)
+###############
 
+
+
+
+c1,c2=st.columns((60,40))
+
+######## Held time and profit made
+held_time_and_profit_made_url = "https://node-api.flipsidecrypto.com/api/v2/queries/3ae53041-cb35-419c-8cb9-3eb84a9dadb2/data/latest"
+held_time_and_profit_made = pd.read_json(held_time_and_profit_made_url)
+held_time_fig=held_time_and_profit_made.groupby(['HELD_TIME','RARITY'],as_index=False).count()
+held_time_fig=px.area(held_time_fig,x='HELD_TIME',y='MINT_AMOUNT',color='RARITY', title='Average holding period')
+held_time_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
+held_time_fig.add_annotation(
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/3ae53041-cb35-419c-8cb9-3eb84a9dadb2'>Query link</a>")
+    , showarrow=False
+    , x = 0.05
+    , y = -0.2
+    , xref='paper'
+    , yref='paper' 
+    , xanchor='right'
+    , yanchor='bottom'
+    , xshift=1
+    , yshift=-5
+    , font=dict(size=15, color="Yellow")
+    , align="right"
+    ,)
+c1.plotly_chart(held_time_fig, use_container_width=True)
+
+profit_made = "https://node-api.flipsidecrypto.com/api/v2/queries/3ae53041-cb35-419c-8cb9-3eb84a9dadb2/data/latest"
+profit_made = pd.read_json(held_time_and_profit_made_url)
+profit_made_fig=held_time_and_profit_made.groupby(['PROFIT','RARITY'],as_index=False).count()
+profit_made_fig=px.area(profit_made_fig,x='PROFIT',y='MINT_AMOUNT',color='RARITY',log_x=True,log_y=True, title='Average Profit made')
+profit_made_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
+profit_made_fig.add_annotation(
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/3ae53041-cb35-419c-8cb9-3eb84a9dadb2'>Query link</a>")
+    , showarrow=False
+    , x = 0.05
+    , y = -0.2
+    , xref='paper'
+    , yref='paper' 
+    , xanchor='right'
+    , yanchor='bottom'
+    , xshift=1
+    , yshift=-5
+    , font=dict(size=15, color="Yellow")
+    , align="right"
+    ,)
+c2.plotly_chart(profit_made_fig, use_container_width=True)
+st.write(grey_card(title='Observation',text=""" \
+    1. FIFA's NFT marketplace has a mandatory 14 day cooling period to avoid flippers. A cooling period of 14 days ensures that people cannot \
+        sell the NFT they bought for 14 days. Hence we see a huge number of NFTs being sold after a period of 14 days. Most of the NFTs are sold 
+        on the 15th day. Additionally the sales reduce drastically after the  3 week mark.<br>
+    2. From the graph on the right, we can clearly see that a lot of rare NFTs are sold for smaller amounts, while majority of the iconic NFTs are sold at \
+        higher price. <br>
+    3. The higher bracket of Epic and lower cap of iconic overlap"""),unsafe_allow_html=True)
+
+######
 
 
 
@@ -114,3 +181,7 @@ wau_image.add_annotation(
 st.plotly_chart(wau_image, use_container_width=True)
 
 ######
+st.write(grey_card(title='Observation',text=""" \
+    1. Initially when the marketplace launched, FIFA addresses accounted for 5 % of the new algorand users, however this has been on a decline since. with now only\
+        0.05% of the new algorand users onboarding because of FIFA. <br>
+    2. The number of weekly active users ( transacting more than twice in a week) has been a constant and hovers around 300 to 400 users. <br>"""),unsafe_allow_html=True)
