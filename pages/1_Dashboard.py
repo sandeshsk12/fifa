@@ -75,8 +75,8 @@ calc_prob.columns=['Collection','Rarity','Probability (%)']
 t=pd.pivot(calc_prob,index='Collection',columns='Rarity',values='Probability (%)')
 z=(t[(card)][str.lower(drop)])
 
-c3.markdown('### The probability that you will get a {} card if you pick the {} collection is {} % '.format(card,drop,round(z,2)))
-
+c3.markdown('#### The probability that you will get a {} card if you pick the {} collection is {} % '.format(card,drop,round(z,2)))
+c2.metric('Probability %',round(z,2))
 
   ###############
 st.markdown("""
