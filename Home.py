@@ -18,7 +18,7 @@ from PIL import  Image
 
 
 st.set_page_config(page_title="Data Explorer", layout="wide",initial_sidebar_state="expanded")
-st.markdown('# FIFA+ COllect marketplace')
+st.markdown('# FIFA+ Collect marketplace')
 st.sidebar.success("select a page above")
 
 
