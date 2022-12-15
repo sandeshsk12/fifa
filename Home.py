@@ -115,7 +115,8 @@ st.markdown(grey_card(title='Glossary', text=
 9. New users : Users who made thier first transaction on Algorand. ( be it with traditional algorand application or FIFA)
 10. Weekly active users : Users who have made transactions for atleast 3 days in a week. """
 ),unsafe_allow_html=True)
-
+st.markdown('ALL THE SQL QUERIES HAVE BEEN TAGGED IN THE BOTTOM LEFT CORNER OF THE GRAPH, THOUGH THERE MIGHT BE SOME HALF WORDS VISIBLE< THE LINKS ARE THERE> THIS WILL BE RECTIFIED SOON')
+st.image('streamlit.png')
 st.markdown(
     """
     <div class="card text-white bg-primary mb-3" >
