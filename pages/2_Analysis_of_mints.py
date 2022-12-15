@@ -95,7 +95,7 @@ nft_sales_by_drop_fig_trend=px.bar( \
       )
 nft_sales_by_drop_fig_trend.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 nft_sales_by_drop_fig_trend.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -121,7 +121,7 @@ nft_sales_by_drop_fig=px.bar( \
       )
 nft_sales_by_drop_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 nft_sales_by_drop_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -152,7 +152,7 @@ nft_sales_by_drop_fig_trend=px.bar( \
       )
 nft_sales_by_drop_fig_trend.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 nft_sales_by_drop_fig_trend.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -178,7 +178,7 @@ nft_sales_by_drop_fig=px.bar( \
       )
 nft_sales_by_drop_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 nft_sales_by_drop_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -208,7 +208,7 @@ nft_sales_by_drop_fig_trend=px.bar( \
       )
 nft_sales_by_drop_fig_trend.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 nft_sales_by_drop_fig_trend.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -233,7 +233,7 @@ nft_sales_by_drop_fig=px.pie( \
       )
 nft_sales_by_drop_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 nft_sales_by_drop_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -276,7 +276,7 @@ avg_spent_on_collection_fig=px.bar( \
       )
 avg_spent_on_collection_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 avg_spent_on_collection_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
