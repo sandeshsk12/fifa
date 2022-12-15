@@ -18,8 +18,8 @@ from PIL import  Image
 
 
 st.set_page_config(page_title="Data Explorer", layout="wide",initial_sidebar_state="expanded")
-st.markdown('# FIFA+ Collect marketplace')
-st.sidebar.success("select a page above")
+st.markdown('# FIFA+ COllect marketplace')
+
 
 
 st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">',unsafe_allow_html=True)
@@ -27,113 +27,56 @@ st.markdown('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap
 
 st.markdown(
     """
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+    <div class="card text-white bg-primary mb-3" >
   <div class="card-header"></div>
   <div class="card-body">
     <h5 class="card-title">
     Introduction
     </h5>
-    <p class="card-text">Introduction.</p>
+    <p class="card-text"></p>
   </div>
   """, unsafe_allow_html=True)
 
-mint_trends = "https://node-api.flipsidecrypto.com/api/v2/queries/76c297d4-0d36-4aab-b545-2985e54e5fa7/data/latest"
-mint_trends = pd.read_json(mint_trends)
-nft_sales_by_drop_fig=px.bar( \
-       data_frame=mint_trends.groupby(by="DROP_NAME",as_index=False).sum(),
-       y='DROP_NAME',
-       x="NUMBER_OF_NFTS",
-       color='DROP_NAME',\
-       color_discrete_sequence=['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3', '#FF6692', '#B6E880', '#FF97FF', '#FECB52'],
-       title="Distibution of Pack sales",
-       orientation='h'
-      )
-nft_sales_by_drop_fig.update_layout({'plot_bgcolor': 'rgba(0, 0, 0, 0)','paper_bgcolor': 'rgba(245,245,245,255)',})
-nft_sales_by_drop_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
-    , showarrow=False
-    , x = 1.2
-    , y = -0.15
-    , xref='paper'
-    , yref='paper' 
-    , xanchor='right'
-    , yanchor='bottom'
-    , xshift=1
-    , yshift=-5
-    , font=dict(size=15, color="black")
-    , align="right"
-    ,)
-st.plotly_chart(nft_sales_by_drop_fig)
-
-
-
-a=st.radio('enter',['DROP_NAME','DROP_NAME'],horizontal=True)
-a1,a2,a3=st.columns(3)
-
-nft_sales_by_drop_fig=px.bar( \
-       data_frame=mint_trends.groupby(by=a,as_index=False).sum(),
-       y='DROP_NAME',
-       x="NUMBER_OF_NFTS",
-       color='DROP_NAME',\
-       color_discrete_sequence=['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3', '#FF6692', '#B6E880', '#FF97FF', '#FECB52'],
-       title="Distibution of Pack sales",
-       orientation='h'
-      )
-nft_sales_by_drop_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(75,75,75,255)',})
-nft_sales_by_drop_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
-    , showarrow=False
-    , x = 1.2
-    , y = -0.15
-    , xref='paper'
-    , yref='paper' 
-    , xanchor='right'
-    , yanchor='bottom'
-    , xshift=1
-    , yshift=-5
-    , font=dict(size=15, color="black")
-    , align="right"
-    ,)
-a1.plotly_chart(nft_sales_by_drop_fig,use_container_width=True)
-with a2:
-    st.markdown('## a')
-    st.markdown('## a')
-    # st.plotly_chart(nft_sales_by_drop_fig,use_container_width=True)
-
-
-c1,c2=st.columns(2)
-drop=c1.selectbox("Enter drop name",('Genesis','Archives','South American Flair','Archives 2'))
-card=c1.selectbox("Enter the card you want",('Common','Rare','Epic','Iconic'))
-
-prob = "https://node-api.flipsidecrypto.com/api/v2/queries/3abb6abe-2f0e-475e-8394-77289d28f6c0/data/latest"
-prob = pd.read_json(prob)
-calc=[]
-for i in prob['DROP_NAME'].unique():
-    for j in prob['RARITY'].unique():
-        a=prob.where((prob['DROP_NAME']==i) & (prob['RARITY']==j)).dropna()
-        c=int([x for x in a['count']][0])
-        b=prob.where((prob['DROP_NAME']==i)).dropna()
-        b=b.groupby(by='DROP_NAME',as_index=False).sum()
-        d=int([x for x in b['count']][0])
-        z=((d-c)/d)*(((d-c-1)/(d-1)))*(((d-c-2)/(d-2)))
-#         print(i,j,1-z)
-        calc.append([i,j,(1-z)*100])
-calc_prob=pd.DataFrame(calc)
-calc_prob.columns=['Collection','Rarity','Probability (%)']
-
-t=pd.pivot(calc_prob,index='Collection',columns='Rarity',values='Probability (%)')
-z=(t[(card)][str.lower(drop)])
-
-c2.markdown('## The probability that you will get a {} card if you pick the {} collecion is {} '.format(card,drop,z))
-
-c2.markdown(
+def grey_card(header='',title='',text=''):
+    return f"""
+    <div class="card text-white bg-secondary mb-" >
+    <div class="card-header">{header}</div>
+    <div class="card-body">
+    <h3 class="card-title">{title}</h3>
+    <p class="card-text">{text}   
     """
-    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-  <div class="card-header"></div>
-  <div class="card-body">
-    <h5 class="card-title">
-    <p>The probability that you will get <p>"{card}"</p> if you pick the {} collecion is {}.format(card,drop,z)</p>
-    </h5>
-    <p class="card-text">Introduction.</p>
-  </div>
-  """, unsafe_allow_html=True)
+
+st.markdown(grey_card(text=
+"""
+### What Is Algorand?
+
+Algorand (ALGO) is both a digital currency and blockchain platform. The Algorand platform is designed to process many transactions quickly, similar to major payment processors like Mastercard or Visa. In addition, Algorand can host other cryptocurrencies and blockchain-based projects, making it a direct competitor to Ethereum. ALGO, the platform's native currency, is used to secure the Algorand blockchain and pay processing fees for Algorand-based transactions.1
+
+Algorand is an open-source blockchain, meaning anyone can view and contribute to the platform's code. Algorand uses an operating protocol it calls pure proof-of-stake (PoS), which recruits network validators from the pool of users.
+"""
+),unsafe_allow_html=True)
+
+st.markdown(grey_card(text=
+"""
+### What Is the FIFA?
+
+The FIFA World Cup, often simply called the World Cup, is an international association football competition contested by the senior men's national teams of the members of the Fédération Internationale de Football Association (FIFA), the sport's global governing body. The tournament has been held every four years
+"""
+),unsafe_allow_html=True)
+
+st.markdown(grey_card(text=
+"""
+### What Is the FIFA+ collect?
+
+FIFA is launching a digital collectible platform later this month called FIFA+ Collect, which will allow fans to have blockchain ownership of iconic soccer games along with men’s and women’s World Cup art and imagery.
+
+Powered by Algorand, FIFA+ Collect will be accessible on FIFA+, the mobile app that produces livestreams of matches, interactive games, news, tournament data and original content. Users of FIFA+ Collect are asked to register on the FIFA+ app to gain information on the upcoming digital collectibles, with updates to be provided as of now in English, French and Spanish.
+
+As recently as May, Algorand became FIFA’s official blockchain partner ahead of the 2022 FIFA World Cup Qatar. Algorand is a carbon neutral tech company that is deployed by more than 2,000 global entities. In March, it inked a three-year kit sponsorship with NJ/NY Gotham FC of the National Women’s Soccer League, enabling fans to use Algorand’s digital wallet to buy in-game NFTs, tickets and merchandise from the team.
+"""
+),unsafe_allow_html=True)
+
+
+
+
+
