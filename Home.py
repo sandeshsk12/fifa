@@ -133,7 +133,7 @@ st.markdown(
   """, unsafe_allow_html=True)
 
 c1,c2=st.columns((70,30))
-c1.markdown(grey_card(title='Glossary', text=
+c1.markdown(grey_card(title='Methodology', text=
 """
 1. Calculating Probability of card. To calculate the probability that an iconic card is picked from genesis, we use high school maths of permutation and combinantion. A video of it can be found here. https://www.youtube.com/watch?v=M0n6olzhI8o <br>
 2. Identifying NFT Sales : to identify NFT sales we use the  algorand.nft.ez_nft_sales_fifa tables <br>
