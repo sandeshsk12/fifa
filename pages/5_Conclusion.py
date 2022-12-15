@@ -57,4 +57,4 @@ st.write(grey_card(title='Key Takeaways',text=""" \
     10. NFTs depicting goals are sold the highest. Especially the rare and epic goals are very likely to be sold. <br>
     11. Initially when the marketplace launched, FIFA addresses accounted for 5 % of the new algorand users, however this has been on a decline since. with now only\
         0.05% of the new algorand users onboarding because of FIFA. <br>
-    12. The number of weekly active users ( transacting more than twice in a week) has been a constant and hovers around 300 to 400 users. <br>"""),unsafe_allow_html=True)
+    12. The number of weekly active users ( transacting more than twice in a week) has been a constant and hovers around 300 to 400 users. <br><br>"""),unsafe_allow_html=True)
