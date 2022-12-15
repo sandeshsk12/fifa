@@ -702,4 +702,46 @@ st.dataframe(top_nft,use_container_width=True)
 
 
 ##########
+#########
+###############
+st.markdown("""
+<div class="card text-white bg-warning mb-3" style="margin:1rem;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h3 class="card-title">Top cards in each collection </h3>
+    <p class="card-text"></p>
+  </div>
+</div>"""
+, unsafe_allow_html=True)
+###############
+######### Top cards in each collection 
+
+top_cards_collection_url = "https://node-api.flipsidecrypto.com/api/v2/queries/6ff7960e-6dfc-45cb-b5d1-c073dfc37ebb/data/latest"
+top_cards_collection = pd.read_json(top_cards_collection_url)
+
+top_cards_collection_fig=px.bar( \
+       data_frame=top_cards_collection,
+       x=str('DESCRIPTION'),
+       y="TOTAL_AMOUNT",
+       color='DROP_NAME',\
+       color_discrete_sequence=['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A', '#19D3F3', '#FF6692', '#B6E880', '#FF97FF', '#FECB52'],
+       title="TOP VALUABLE CARDS ($)",
+       hover_data=['DESCRIPTION','RARITY','DROP_NAME','NFT_ASSET_ID','TOTAL_AMOUNT']
+      )
+top_cards_collection_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
+top_cards_collection_fig.add_annotation(
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/6ff7960e-6dfc-45cb-b5d1-c073dfc37ebb'>Query link</a>")
+    , showarrow=False
+    , x = 0.05
+    , y = -0.2
+    , xref='paper'
+    , yref='paper' 
+    , xanchor='right'
+    , yanchor='bottom'
+    , xshift=1
+    , yshift=-5
+    , font=dict(size=15, color="Yellow")
+    , align="right"
+    ,)
+st.plotly_chart(top_cards_collection_fig, use_container_width=True)
 
