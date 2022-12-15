@@ -18,7 +18,7 @@ from PIL import  Image
 
 
 st.set_page_config(page_title="Data Explorer", layout="wide",initial_sidebar_state="expanded")
-st.markdown('# FIFA+ Collect marketplace')
+st.markdown('# FIFA+ COllect marketplace')
 
 
 
@@ -116,7 +116,14 @@ st.markdown(grey_card(title='Glossary', text=
 10. Weekly active users : Users who have made transactions for atleast 3 days in a week. """
 ),unsafe_allow_html=True)
 
-
-
-
-
+st.markdown(
+    """
+    <div class="card text-white bg-primary mb-3" >
+  <div class="card-header"> Twitter </div>
+  <div class="card-body">
+    <h5 class="card-title">
+    Twitter link : https://twitter.com/Sandesh_K_12/status/1603247772152393729?s=20&t=H_nMwprisl37SFJuNCCQFQ
+    </h5>
+    <p class="card-text"></p>
+  </div>
+  """, unsafe_allow_html=True)
