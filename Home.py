@@ -89,18 +89,20 @@ How do I get involved?
 
 """
 ),unsafe_allow_html=True)
-
 st.markdown(
     """
     <div class="card text-white bg-primary mb-3" >
   <div class="card-header"></div>
-  <div class="card-body">
+  <div class="card-body">Objective
     <h5 class="card-title">
-    Glossary
+    The goal is to create a dashboard to allow users to monitor the minting and secondary sales of each collection.
     </h5>
     <p class="card-text"></p>
   </div>
   """, unsafe_allow_html=True)
+
+
+
 st.markdown(grey_card(title='Glossary', text=
 """
 1. Drop_name : Fifa has released four different NFT collection. Genesis, Archives, Archives 2 and south america. These have been 'dropped' at different times. Hence we address them\
@@ -115,8 +117,54 @@ st.markdown(grey_card(title='Glossary', text=
 9. New users : Users who made thier first transaction on Algorand. ( be it with traditional algorand application or FIFA)
 10. Weekly active users : Users who have made transactions for atleast 3 days in a week. """
 ),unsafe_allow_html=True)
-st.markdown('ALL THE SQL QUERIES HAVE BEEN TAGGED IN THE BOTTOM LEFT CORNER OF THE GRAPH, THOUGH THERE MIGHT BE SOME HALF WORDS VISIBLE< THE LINKS ARE THERE> THIS WILL BE RECTIFIED SOON')
+
+st.markdown(grey_card(text='ALL THE SQL QUERIES HAVE BEEN TAGGED IN THE BOTTOM LEFT CORNER OF THE GRAPH, THOUGH THERE MIGHT BE SOME HALF WORDS VISIBLE< THE LINKS ARE THERE> THIS WILL BE RECTIFIED SOON'),unsafe_allow_html=True)
 st.image('streamlit.png')
+st.markdown(
+    """
+    <div class="card text-white bg-primary mb-3" >
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">
+    Methodology
+    </h5>
+    <p class="card-text"></p>
+  </div>
+  """, unsafe_allow_html=True)
+
+c1,c2=st.columns((70,30))
+c1.markdown(grey_card(title='Glossary', text=
+"""
+1. Calculating Probability of card. To calculate the probability that an iconic card is picked from genesis, we use high school maths of permutation and combinantion. A video of it can be found here. https://www.youtube.com/watch?v=M0n6olzhI8o <br>
+2. Identifying NFT Sales : to identify NFT sales we use the  algorand.nft.ez_nft_sales_fifa tables <br>
+3. The NFT metadata is derived using the algorand.nft.ez_nft_metadata_fifa table on flipside <br>
+4. Information regarding 14 day cooling period can be found on terms of service page (https://collect.fifa.com/terms-of-service) <br>
+5. All the transactions and volume are presented in USD.
+6. MVP (most valuable players) : Players whose total NFT sales value are among the top 10. <br>
+7. Average holding period is determined by making two different tables for mints and sales and further joining them on nft asset id to get the date difference. However, in this case, we lose the \
+    value of NFTS that have been sold more than twice. But this is a good approximation for now as the number of NFTs sold more than once is very low. <br>
+8. New users are identified using the min function on block_timestamp to get the first transaction
+
+
+ """
+),unsafe_allow_html=True)
+c2.markdown(grey_card(title='Sections', text=
+"""
+<br><br>
+1. Introduction <br>
+2. Dashboard <br>
+3. Analysis of mints <br>
+4. Analysis of sales <br>
+5. Marketplace <br>
+6. Conclusion <br><br>
+<br><br><br><br>
+
+ """
+),unsafe_allow_html=True)
+
+
+
+
 st.markdown(
     """
     <div class="card text-white bg-primary mb-3" >
@@ -128,3 +176,9 @@ st.markdown(
     <p class="card-text"></p>
   </div>
   """, unsafe_allow_html=True)
+
+
+
+
+
+
