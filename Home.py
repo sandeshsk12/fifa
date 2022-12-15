@@ -39,7 +39,7 @@ st.markdown(
 
 def grey_card(header='',title='',text=''):
     return f"""
-    <div class="card text-white bg-secondary mb-" >
+    <div class="card text-white bg-secondary mb-" style="margin:1rem;" >
     <div class="card-header">{header}</div>
     <div class="card-body">
     <h3 class="card-title">{title}</h3>
@@ -73,6 +73,15 @@ FIFA is launching a digital collectible platform later this month called FIFA+ C
 Powered by Algorand, FIFA+ Collect will be accessible on FIFA+, the mobile app that produces livestreams of matches, interactive games, news, tournament data and original content. Users of FIFA+ Collect are asked to register on the FIFA+ app to gain information on the upcoming digital collectibles, with updates to be provided as of now in English, French and Spanish.
 
 As recently as May, Algorand became FIFA’s official blockchain partner ahead of the 2022 FIFA World Cup Qatar. Algorand is a carbon neutral tech company that is deployed by more than 2,000 global entities. In March, it inked a three-year kit sponsorship with NJ/NY Gotham FC of the National Women’s Soccer League, enabling fans to use Algorand’s digital wallet to buy in-game NFTs, tickets and merchandise from the team.
+
+How do I get involved?
+
+    Create your account and sign up to begin your FIFA+ Collect journey.
+
+    Once you’ve selected your packs and scored your breathtaking moments, view and enjoy the collectibles you have landed, or trade and sell them on the designed FIFA+ Collect marketplace. 
+    
+    Compete with your collectibles in upcoming quests to win unforgettable rewards and grow your collection even more. 
+
 """
 ),unsafe_allow_html=True)
 
