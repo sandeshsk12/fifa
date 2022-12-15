@@ -51,7 +51,9 @@ c1,c2=st.columns((7,3))
 
 ###### mint info
 c1.write(grey_card(title='FIFA+ Secondary sales',
-text=' NFT minting takes place on aa <br> <br>'),unsafe_allow_html=True)
+text=" The FIFA+ Connect marketplace is used to trade sell/buy Fifa moments. Besides the craze and sentiment (especially sentiment of football fans) to hold\
+    / trade FIFA NFT. The Challenges initatives from FIFA is also among one of the reasons users are interested in trading NFT. <br> \
+        Well, it's not just that, The minting process ensures that you get a random card with random rarity, so if you want to own something special, you need to go the secondary marketplace where individual pieces can be sold.""" ),unsafe_allow_html=True)
 ######
 
 
@@ -274,7 +276,7 @@ avg_spent_on_collection_fig=px.bar( \
       )
 avg_spent_on_collection_fig.update_layout({'plot_bgcolor': 'rgba(100, 0, 0, 0)','paper_bgcolor': 'rgba(85,85,85,255)',})
 avg_spent_on_collection_fig.add_annotation(
-    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2a048522-a80c-4cdb-b0d7-3a904aaf8416'>Query link</a>")
+    text = (f"<a href='https://app.flipsidecrypto.com/velocity/queries/2d9dbf0f-0a9a-46a2-b13d-e318fd39f37f'>Query link</a>")
     , showarrow=False
     , x = 0.05
     , y = -0.2
@@ -702,7 +704,6 @@ st.dataframe(top_nft,use_container_width=True)
 
 
 ##########
-#########
 ###############
 st.markdown("""
 <div class="card text-white bg-warning mb-3" style="margin:1rem;">
@@ -744,4 +745,5 @@ top_cards_collection_fig.add_annotation(
     , align="right"
     ,)
 st.plotly_chart(top_cards_collection_fig, use_container_width=True)
+
 
